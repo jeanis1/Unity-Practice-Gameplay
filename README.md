@@ -1,4 +1,4 @@
-# Test1 — Unity Gameplay Systems Project
+# Unity Gameplay Systems Project
 
 A third-person Unity gameplay project focused on **modular gameplay architecture, AI behavior, player systems, and maintainable state-driven design**.
 
@@ -19,10 +19,7 @@ The project was built to explore production-oriented approaches to gameplay prog
 - **AI finite-state machine**
 - **NavMesh-based AI navigation**
 - Component-oriented architecture designed to reduce tightly coupled `MonoBehaviour` logic
-- Player movement using `CharacterController`
-- Unity **Input System**
-- Combat, health, knockback, and weapon interactions
-- Animation and audio integration
+- Combat, health, knockback, and weapon systems
 - Centralized game-state management
 - Event-driven UI and gameplay communication
   <br>
@@ -58,9 +55,10 @@ Game
 AI states interact with capabilities through focused interfaces such as movement, animation, sound, and status components.<br>
 This keeps individual states small and allows behavior to evolve without concentrating all AI logic into a single class.
 <br>
+
 ## Engineering Approach
 
-The project emphasizes several principles I use when building gameplay systems:
+The project emphasizes several principles:
 
 - **Composition over inheritance**
 - Clear separation of responsibilities
@@ -72,6 +70,7 @@ The project emphasizes several principles I use when building gameplay systems:
 
 The goal is to keep systems understandable as gameplay complexity increases.
 <br>
+
 ## Technology
 
 - **Unity 6**
@@ -80,6 +79,7 @@ The goal is to keep systems understandable as gameplay complexity increases.
 - AI NavMesh
   
   <br>
+
 ## Project Status
 
 This is a gameplay engineering / architecture project rather than a commercially released game. 
