@@ -16,16 +16,11 @@ namespace Code.Component.State.AI
         private NavMeshAgent _agent;
         private Transform _playerTransform;
         
-        private float chaseSpeed = 10f;
-        private float chaseRange = 10f;
-        public AI_ChaseState(AI_ControllerComponent controller, IAI_Status status, IAIMove move, IAI_Animator animator, IAI_Sound sound, NavMeshAgent agent, Transform playerTransform, IChasing chasing)
+   
+        public AI_ChaseState(AI_ControllerComponent controller, IAI_Animator animator, Transform playerTransform, IChasing chasing)
         {
             this._controller = controller;
             this._animator = animator;
-            this._move = move;
-            this._status = status;
-            this._sound = sound;
-            this._agent = agent;
             this._playerTransform = playerTransform;
             this._chasing = chasing;
         }
