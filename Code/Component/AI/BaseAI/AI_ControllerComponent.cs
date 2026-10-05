@@ -8,14 +8,14 @@ using UnityEngine.Serialization;
 namespace Code.Component.AI
 {
 
-    public interface IAI_Enemy
+    public interface IAIEnemy
     {
         void PickupHealth(float healthAmount);
         void TakeDamage(Vector3 attackDirection, float damage);
         void BuffSpeed(float speedAmount);
         void RestoreOriginalSpeed();
     }
-    public class AI_ControllerComponent : MonoBehaviour, IAI_Enemy, IResetObject
+    public class AI_ControllerComponent : MonoBehaviour, IAIEnemy, IResetObject
     {
         public BaseStateMachine StateMachine { get; private set; }
         public IState IdleState { get; private set; }
@@ -140,13 +140,13 @@ namespace Code.Component.AI
 
         public void BuffSpeed(float speedAmount)
         {
-            SpeedAdjustable.SetChaseSpeed(speedAmount + SpeedAdjustable.originalSpeed);
+            SpeedAdjustable.SetChaseSpeed(speedAmount + SpeedAdjustable.OriginalSpeed);
             Sound.PlaySound("SpeedBuff");
         }
 
         public void RestoreOriginalSpeed()
         {
-            SpeedAdjustable.SetChaseSpeed(SpeedAdjustable.originalSpeed);
+            SpeedAdjustable.SetChaseSpeed(SpeedAdjustable.OriginalSpeed);
         }
     }
 }

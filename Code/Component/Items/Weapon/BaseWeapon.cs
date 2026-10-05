@@ -124,7 +124,7 @@ namespace Code.Weapon
             }
             else if (target.CompareTag(enemyTag))
             {
-                IAI_Enemy controller = target.GetComponent<IAI_Enemy>();
+                IAIEnemy controller = target.GetComponent<IAIEnemy>();
                 if(controller != null) controller.TakeDamage(transform.position, damageAmt);
             }
             

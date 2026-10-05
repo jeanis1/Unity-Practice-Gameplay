@@ -24,7 +24,7 @@ namespace Code.Component
 
     public interface ISpeedModifiable
     {
-        float originalSpeed { get; set; }
+        float OriginalSpeed { get; set; }
         void SetSpeed(float speed);
         void BuffSpeed(float speed);
         void RestoreOriginalSpeed();
@@ -49,7 +49,7 @@ namespace Code.Component
         [SerializeField] private Transform cameraPivot;
         [SerializeField] private float groundDistance = 0.5f;
         [SerializeField] private LayerMask groundMask;
-        public float originalSpeed { get; set; }
+        public float OriginalSpeed { get; set; }
         private CharacterController controller;
         private Animator _animator;
         private Vector3 velocity;
@@ -58,7 +58,7 @@ namespace Code.Component
         void Awake()
         {
             controller = GetComponent<CharacterController>();
-            originalSpeed = moveSpeed; //cache default speed to fall back to   
+            OriginalSpeed = moveSpeed; //cache default speed to fall back to   
             if (cameraPivot == null && Camera.main != null) cameraPivot = Camera.main.transform;
         }
 
@@ -173,7 +173,7 @@ namespace Code.Component
 
         public void RestoreOriginalSpeed()
         {
-            moveSpeed = originalSpeed;
+            moveSpeed = OriginalSpeed;
             Debug.Log("Reset Speed: " + moveSpeed);
 
         }

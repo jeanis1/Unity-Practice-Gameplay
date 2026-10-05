@@ -42,7 +42,7 @@ namespace Code.Component.State.AI
             
             
             //Initialize Flee Position tracking
-            if (_move is IaiMoveComponent moveComponent)
+            if (_move is IAIMoveComponent moveComponent)
             {
                 moveComponent.ResetFleePosition();
             }

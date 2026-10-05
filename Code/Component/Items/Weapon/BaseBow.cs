@@ -68,7 +68,7 @@ namespace Code.Weapon
             //
             //     if (other.CompareTag(enemyTag) && other.GetComponent<AI_ControllerComponent>() != null)
             //     {
-            //         IAI_Enemy controller = other.GetComponent<IAI_Enemy>();
+            //         IAIEnemy controller = other.GetComponent<IAIEnemy>();
             //         Vector3 attackDirection = transform.position;
             //         controller.TakeDamage(attackDirection, damageAmt);
             //     }

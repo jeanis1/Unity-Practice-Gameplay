@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Code.Component.AI.Bandit
 {
-    public class IaiBanditMoveComponent : IaiMoveComponent
+    public class IaiBanditMoveComponent : IAIMoveComponent
     {
         [SerializeField] private Transform questActivationPoint;
 

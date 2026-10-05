@@ -92,7 +92,7 @@ namespace Code.Weapon
             }
             else if (target.CompareTag(enemyTag))
             {
-                IAI_Enemy controller = target.GetComponent<IAI_Enemy>();
+                IAIEnemy controller = target.GetComponent<IAIEnemy>();
                 if (controller != null) controller.TakeDamage(transform.position, damageAmt);
             }
         }
@@ -129,7 +129,7 @@ namespace Code.Weapon
 
                 if (other.CompareTag(enemyTag) && other.GetComponent<AI_ControllerComponent>())
                 {
-                    IAI_Enemy controller = other.GetComponent<AI_ControllerComponent>();
+                    IAIEnemy controller = other.GetComponent<AI_ControllerComponent>();
                     Vector3 attackDirection = transform.position;
                     controller.TakeDamage(attackDirection, damageAmt);
                 }

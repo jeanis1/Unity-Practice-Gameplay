@@ -14,7 +14,7 @@ namespace Code.Component.AI
 
     public interface ISpeedAdjustable
     {
-        float originalSpeed { get; set; }
+        float OriginalSpeed { get; set; }
         void SetChaseSpeed(float speed);
     }
 
@@ -38,7 +38,7 @@ namespace Code.Component.AI
 
     }
 
-public class IaiMoveComponent : MonoBehaviour, IAIMove, ISpeedAdjustable,IPatrolling, IChasing, IFleeing
+public class IAIMoveComponent : MonoBehaviour, IAIMove, ISpeedAdjustable,IPatrolling, IChasing, IFleeing
     {
         [SerializeField] private float patrolSpeed = 2f;
         [SerializeField] private float chaseSpeed = 5f;
@@ -60,7 +60,7 @@ public class IaiMoveComponent : MonoBehaviour, IAIMove, ISpeedAdjustable,IPatrol
         [Tooltip("Movement Speed Multiplier")]
         public float speed = 3.5f;
         
-        public float originalSpeed { get; set; }
+        public float OriginalSpeed { get; set; }
         private CharacterController controller;
         private Animator _animator;
         private Vector3 velocity;
@@ -90,7 +90,7 @@ public class IaiMoveComponent : MonoBehaviour, IAIMove, ISpeedAdjustable,IPatrol
             controller = GetComponent<CharacterController>();
             _agent = GetComponent<NavMeshAgent>();
             
-            originalSpeed = patrolSpeed; // cache default speed
+            OriginalSpeed = patrolSpeed; // cache default speed
 
             _agent.stoppingDistance = acceptanceRadius;
             _agent.updatePosition = false; //drive position with CharacterController
