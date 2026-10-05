@@ -1,214 +1,86 @@
-# Company Enrichment & ICP Qualification CLI
+# Test1 — Unity Gameplay Systems Project
 
-Python-based GTM engineering workflow that enriches company domains, normalizes third-party API data, scores ICP fit, and processes prospect lists for sales qualification.
+A third-person Unity gameplay project focused on **modular gameplay architecture, AI behavior, player systems, and maintainable state-driven design**.
 
-# Business Problem
+The project was built to explore production-oriented approaches to gameplay programming rather than concentrating solely on content or visual presentation.
+<br>
+## What This Project Demonstrates
 
-Sales and GTM teams often receive account lists that require enrichment, validation, deduplication, qualification, and prioritization before outreach.
+**Unity gameplay engineering**
+- decomposing gameplay features into maintainable systems
+- designing finite-state-machine architectures
+- coordinating AI navigation and gameplay behavior
+- managing dependencies between gameplay components
+- building systems that can be extended without rewriting core controllers
+  <br>
+## Highlights
 
-This project automates that workflow while handling invalid inputs, API failures, and partial batch failures.
+- **Player state machine** for movement and gameplay behavior
+- **AI finite-state machine**
+- **NavMesh-based AI navigation**
+- Component-oriented architecture designed to reduce tightly coupled `MonoBehaviour` logic
+- Player movement using `CharacterController`
+- Unity **Input System**
+- Combat, health, knockback, and weapon interactions
+- Animation and audio integration
+- Centralized game-state management
+- Event-driven UI and gameplay communication
+  <br>
+## Architecture
 
-# Features
-
-**V1 — Single Account Enrichment**
-
-* Company enrichment through an external API
-* JSON response parsing
-* Pydantic data normalization
-* Deterministic ICP scoring
-* JSON and CSV persistence
-* API and network error handling
-* Retry/backoff for temporary failures
-* Unit and mocked API tests
-* Malformed-response validation
-
-**V2 — Batch Account Qualification**
-
-Status: In Development
-
-* CSV prospect-list ingestion
-* Domain validation
-* Duplicate detection
-* Previously processed account detection
-* Prospect source preservation
-* Per-account failure isolation
-* ICP qualification
-* ICP ranking
-* Batch result persistence
-* Batch processing summary
-* Batch-specific automated tests
-
-# Data Flow
-
-Single Account
-
-Domain
-↓
-API Client
-↓
-Raw JSON
-↓
-Pydantic Model
-↓
-ICP Scoring
-↓
-JSON / CSV Output
-
-Batch Processing
-
-Prospect CSV
-↓
-Validation
-↓
-Deduplication
-↓
-Company Enrichment
-↓
-Pydantic Normalization
-↓
-ICP Scoring
-↓
-Qualification + Ranking
-↓
-Batch Results + Summary
-
-The batch workflow is designed so that failure of an individual account does not terminate processing of the remaining prospect list.
-
-# Tech Stack
-
-* Python
-* Requests
-* Pydantic
-* python-dotenv
-* pytest
-* AbstractAPI Company Enrichment API
-* Pandas (batch-processing extension)
-
-# Project Structure
-
+Gameplay systems are separated by responsibility rather than implemented inside large controller classes.
+<br>
 ```text
-CompanyEnrichmentCLI-Codespace
-│
-├── clients/
-│   └── abstract_api.py
-│
-├── models/
-│   ├── company.py
-│   └── icp.py
-│
-├── services/
-│   ├── company_enrichment.py
-│   ├── persistence.py
-│   └── scoring_icp.py
-│
-├── tests/
-├── output/
-├── config.py
-├── main.py
-├── requirements.txt
-└── README.md
+Player
+├── Input
+├── Movement
+├── Combat
+└── State Machine
+
+AI
+├── State Machine
+│   ├── Patrol
+│   ├── Chase
+│   ├── Attack
+│   ├── Stun
+│   └── Death
+├── Navigation
+├── Combat
+├── Animation
+└── Status / Health
+
+Game
+├── Game State
+├── UI
+└── Gameplay Events
 ```
+<br>
+AI states interact with capabilities through focused interfaces such as movement, animation, sound, and status components.<br>
+This keeps individual states small and allows behavior to evolve without concentrating all AI logic into a single class.
+<br>
+## Engineering Approach
 
+The project emphasizes several principles I use when building gameplay systems:
 
-Responsibilities
+- **Composition over inheritance**
+- Clear separation of responsibilities
+- Explicit state transitions
+- Event-driven communication where appropriate
+- Minimal unnecessary `Update()` polling
+- Small, replaceable gameplay components
+- Separation between navigation, state logic, presentation, and combat behavior
 
-* clients/ — External API communication and API-specific error handling
-* models/ — Application-owned Pydantic data models
-* services/ — Enrichment, ICP scoring, and persistence logic
-* tests/ — Automated tests
-* main.py — CLI entry point and orchestration
+The goal is to keep systems understandable as gameplay complexity increases.
+<br>
+## Technology
 
-# Setup
+- **Unity 6**
+- **C#**
+- Universal Render Pipeline (URP)
+- AI NavMesh
+- 
+  <br>
+## Project Status
 
-Clone the repository:
-```text
-git clone <repository-url>
-cd CompanyEnrichmentCLI-Codespace
-```
-
-Create and activate a virtual environment:
-```text
-python -m venv .venv
-source .venv/bin/activate
-```
-
-Install dependencies:
-```text
-pip install -r requirements.txt
-```
-Create a .env file:
-```text
-ABSTRACT_API_KEY=your_api_key
-```
-# Usage
-
-**Single Account**
-```text
-python main.py --domain example.com
-```
-
-The application:
-
-1. Accepts a company domain
-2. Calls the enrichment API
-3. Normalizes the response
-4. Calculates ICP fit
-5. Prints the structured result
-6. Saves JSON and CSV output
-
-**Batch Processing**
-
-```text
-python main.py --csv prospects.csv
-```
-
-Example input:
-
-domain,source
-openai.com,outbound
-stripe.com,event
-example.com,linkedin
-
-# Failure Handling
-
-Account-level failures are recorded without terminating the entire batch.
-
-Examples include:
-
-* Invalid domains
-* Duplicate accounts
-* Previously processed accounts
-* API failures
-* Malformed API responses
-* Pydantic validation failures
-
-Batch-level failures, such as an unreadable input CSV, terminate the batch with an appropriate error.
-
-# Testing
-
-Run the test suite:
-```text
-python -m pytest
-```
-
-Current tests cover:
-
-* ICP scoring
-* Persistence
-* API behavior
-* Mocked API responses
-* Retry behavior
-* API error handling
-* JSON decoding failures
-* Malformed responses
-* Pydantic validation
-
-Planned batch tests include:
-
-* Normal batch & error processing
-* Qualified and unqualified outcomes
-* Invalid domains
-* API failures
-* Partial-failure continuation
-* ICP ranking
-
+This is a gameplay engineering / architecture project rather than a commercially released game. 
+Its primary purpose is demonstrating implementation patterns and gameplay-system design.
