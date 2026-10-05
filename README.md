@@ -78,7 +78,7 @@ The goal is to keep systems understandable as gameplay complexity increases.
 - **C#**
 - Universal Render Pipeline (URP)
 - AI NavMesh
-- 
+  
   <br>
 ## Project Status
 
