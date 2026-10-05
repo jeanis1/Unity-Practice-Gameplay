@@ -35,7 +35,6 @@ namespace Code.Component
     {
     }
 
-    [RequireComponent(typeof(CharacterInputComponent))]
     [RequireComponent(typeof(CharacterMoveComponent))]
     public class CharacterMoveComponent : MonoBehaviour, IMove, ISpeedReceiver
     {

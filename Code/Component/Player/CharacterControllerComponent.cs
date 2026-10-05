@@ -39,7 +39,6 @@ namespace Code.Component
         [FormerlySerializedAs("_ui")] [SerializeField] private UIManager ui;
         [SerializeField] private GameObject arrowPrefab;
         private bool _quitMenuOn;
-        [SerializeField] private CharacterInventoryComponent inventory;
 
         [SerializeField] private float swordDamage;
         [SerializeField] private float daggerDamage;
@@ -73,8 +72,7 @@ namespace Code.Component
             StunState = new StunState(this, _animator, _move, _status, _sound);
             DeathState = new DeathState (this, _animator, _move, _status, _sound);
 
-            inventory = GetComponent<CharacterInventoryComponent>();
-            if (inventory == null)
+            if (_inventory == null)
             {
                 Debug.LogError("CharacterInventoryComponent not found!", this);
             }
