@@ -32,6 +32,7 @@ Player
 ├── Input
 ├── Movement
 ├── Combat
+├── Inventory
 └── State Machine
 
 AI
@@ -48,7 +49,7 @@ AI
 
 Game
 ├── Game State
-├── UI
+├── UI & Dialogue
 └── Gameplay Events
 ```
 <br>
