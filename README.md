@@ -1,6 +1,6 @@
 # Unity Gameplay Systems Project
 
-A third-person Unity gameplay project focused on **modular gameplay architecture, AI behavior, player systems, and maintainable state-driven design**.
+A third-person Unity gameplay project focused on modular gameplay architecture, AI behavior, player systems, and maintainable state-driven design.
 
 The project was built to explore production-oriented approaches to gameplay programming rather than concentrating solely on content or visual presentation.
 <br>
@@ -15,9 +15,9 @@ The project was built to explore production-oriented approaches to gameplay prog
   <br>
 ## Highlights
 
-- **Player state machine** for movement and gameplay behavior
-- **AI finite-state machine**
-- **NavMesh-based AI navigation**
+- Player state machine** for movement and gameplay behavior
+- AI finite-state machine**
+- NavMesh-based AI navigation**
 - Component-oriented architecture designed to reduce tightly coupled `MonoBehaviour` logic
 - Combat, health, knockback, and weapon systems
 - Centralized game-state management
@@ -72,16 +72,3 @@ The project emphasizes several principles:
 The goal is to keep systems understandable as gameplay complexity increases.
 <br>
 
-## Technology
-
-- **Unity 6**
-- **C#**
-- Universal Render Pipeline (URP)
-- AI NavMesh
-  
-  <br>
-
-## Project Status
-
-This is a gameplay engineering / architecture project rather than a commercially released game. 
-Its primary purpose is demonstrating implementation patterns and gameplay-system design.
